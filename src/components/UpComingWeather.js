@@ -1,5 +1,6 @@
-import { FlatList, SafeAreaView, Text, View } from "react-native"
+import { FlatList, ImageBackground, SafeAreaView, Text, View } from "react-native"
 import { Feather } from '@expo/vector-icons';
+import { StatusBar } from "expo-status-bar";
 
 
 const upComingWeatherData = [
@@ -37,7 +38,7 @@ const upComingWeatherData = [
 
 
 const Item = ({ dt_txt, min, max }) => (
-    <View style={{ border: '1px solid gray', marginVertical: 8, marginHorizontal: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+    <View style={{ backgroundColor:'lightgray', border: '1px solid gray', marginVertical: 8, marginHorizontal: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around' }}>
         <Feather name="sun" size={50} color="black" style={{ margin: 10 }} />
         <Text style={{ margin: 20 }}>{dt_txt}</Text>
         <Text style={{ margin: 20 }}>{min}</Text>
@@ -45,7 +46,7 @@ const Item = ({ dt_txt, min, max }) => (
     </View>
 );
 
-const UpComingWeather = () => { 
+const UpComingWeather = () => {
     const renderItem = ({ item }) => (
         <Item
             dt_txt={item.dt_txt}
@@ -55,14 +56,18 @@ const UpComingWeather = () => {
     );
 
     return (
-        <SafeAreaView>
-            <Text>UpComingWeather</Text>
-            <FlatList
-                style={{ backgroundColor: 'pink' }}
-                keyExtractor={item => item.dt_txt}
-                data={upComingWeatherData}
-                renderItem={renderItem}
-            />
+        <SafeAreaView style={{ flex: 1, marginTop: StatusBar.currentHeight || 0, backgroundColor: 'royalblue' }}>
+            <ImageBackground
+                style={{ flex: 1 }}
+                source={require('../imges/weatherBackground.jpeg')}
+            >
+                <Text style={{ fontSize: 30, textAlign: 'center', padding: 10, height: 60, color: 'white' }}>Up Coming Weather</Text>
+                <FlatList
+                    keyExtractor={item => item.dt_txt}
+                    data={upComingWeatherData}
+                    renderItem={renderItem}
+                />
+            </ImageBackground>
         </SafeAreaView>
     )
 }
