@@ -1,6 +1,7 @@
 const { View, SafeAreaView, ImageBackground, Text } = require("react-native")
 import { StatusBar } from "expo-status-bar";
 import { Feather } from '@expo/vector-icons';
+import IconText from "../components/IconText";
 
 
 
@@ -11,17 +12,12 @@ const City = () => {
                 style={{ flex: 1 }}
                 source={require('../imges/sunset.jpg')}
             >
-                <Text style={{fontSize:40, textAlign:'center', color:'white', marginTop:50}}>Jamshedpur</Text>
-                <Text style={{fontSize:40, textAlign:'center', color:'white'}}>India</Text>
-                <View style={{ alignItems:'center', marginTop:40}} >
-                    <Feather name="user" size={50} color={'red'}/>
-                    <Text style={{fontSize:24, color:'red'}}>80000</Text>
-                </View>
-                <View style={{ flexDirection:'row', alignItems:'center', justifyContent:'space-around', marginTop:30}}>
-                    <Feather name="sunrise" size={50} color={'white'}/>
-                    <Text style={{fontSize:20, fontWeight:500, color:'white'}}>07:25 AM</Text>
-                    <Feather name="sunset" size={50} color={'white'}/>
-                    <Text style={{fontSize:20, fontWeight:500, color:'white'}}>05:45 PM</Text>
+                <Text style={{ fontSize: 40, textAlign: 'center', color: 'white', marginTop: 50 }}>Jamshedpur</Text>
+                <Text style={{ fontSize: 40, textAlign: 'center', color: 'white', marginBottom: 50 }}>India</Text>
+                <IconText iconName={"user"} text={"8000"} fontSize={24} iconFontSize={50} color={'red'} />
+                <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', marginTop: 30 }}>
+                    <IconText iconName={"sunrise"} text={"07:25 AM"} fontSize={20} iconFontSize={50} color={'white'} />
+                    <IconText iconName={"sunset"} text={"05:45 PM"} fontSize={20} iconFontSize={50} color={'white'} />
                 </View>
 
             </ImageBackground>

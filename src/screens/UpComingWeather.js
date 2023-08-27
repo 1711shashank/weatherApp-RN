@@ -1,6 +1,4 @@
 import { FlatList, ImageBackground, SafeAreaView, Text, View } from "react-native"
-import { Feather } from '@expo/vector-icons';
-import { StatusBar } from "expo-status-bar";
 import ListItem from "../components/ListItem";
 
 

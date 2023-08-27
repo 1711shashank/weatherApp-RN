@@ -1,25 +1,16 @@
-import { View, StyleSheet } from 'react-native';
-import CurrentWeather from './src/screens/CurrentWeather';
-import UpComingWeather from './src/screens/UpComingWeather';
-import City from './src/screens/City';
+import { NavigationContainer } from '@react-navigation/native';
+import Tabs from './src/components/Tabs';
 
 const App = () => {
 
-    console.log('ji');
+    
+
     return (
-        <View style={styles.wrapper}>
-            {/* <CurrentWeather /> */}
-            {/* <UpComingWeather/> */}
-            <City/>
-        </View>
+        <NavigationContainer>
+            <Tabs />
+        </NavigationContainer>
     );
 };
 
-
-const styles = StyleSheet.create({
-    wrapper: {
-        flex: 1,
-    }
-});
 
 export default App;
