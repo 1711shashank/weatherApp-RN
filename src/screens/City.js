@@ -5,7 +5,7 @@ import IconText from "../components/IconText";
 
 
 
-const City = () => {
+const City = ({weatherData}) => {
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: 'royalblue' }}>
             <ImageBackground

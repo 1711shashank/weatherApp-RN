@@ -36,7 +36,7 @@ const upComingWeatherData = [
 ];
 
 
-const UpComingWeather = () => {
+const UpComingWeather = ({weatherData}) => {
     const renderItem = ({ item }) => (
         <ListItem
             dt_txt={item.dt_txt}
