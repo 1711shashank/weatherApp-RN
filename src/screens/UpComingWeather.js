@@ -1,6 +1,7 @@
 import { FlatList, ImageBackground, SafeAreaView, Text, View } from "react-native"
 import { Feather } from '@expo/vector-icons';
 import { StatusBar } from "expo-status-bar";
+import ListItem from "../components/ListItem";
 
 
 const upComingWeatherData = [
@@ -37,18 +38,9 @@ const upComingWeatherData = [
 ];
 
 
-const Item = ({ dt_txt, min, max }) => (
-    <View style={{ backgroundColor:'lightgray', border: '1px solid gray', marginVertical: 8, marginHorizontal: 16, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around' }}>
-        <Feather name="sun" size={50} color="black" style={{ margin: 10 }} />
-        <Text style={{ margin: 20 }}>{dt_txt}</Text>
-        <Text style={{ margin: 20 }}>{min}</Text>
-        <Text style={{ margin: 20 }}>{max}</Text>
-    </View>
-);
-
 const UpComingWeather = () => {
     const renderItem = ({ item }) => (
-        <Item
+        <ListItem
             dt_txt={item.dt_txt}
             min={item.main.temp_min}
             max={item.main.temp_max}
@@ -56,7 +48,7 @@ const UpComingWeather = () => {
     );
 
     return (
-        <SafeAreaView style={{ flex: 1, marginTop: StatusBar.currentHeight || 0, backgroundColor: 'royalblue' }}>
+        <SafeAreaView style={{ flex: 1, backgroundColor: 'royalblue' }}>
             <ImageBackground
                 style={{ flex: 1 }}
                 source={require('../imges/weatherBackground.jpeg')}
