@@ -9,8 +9,6 @@ import { Feather } from '@expo/vector-icons';
 
 const Tabs = ({ weather }) => {
 
-    console.log(weather);
-
     const Tab = createBottomTabNavigator();
 
     return (
@@ -41,7 +39,7 @@ const Tabs = ({ weather }) => {
             <Tab.Screen name={'City'} options={{ tabBarIcon: ({ focused }) => <Feather name="home" size={25} color={focused ? 'tomato' : 'gray'} /> }}>
                 {() => <City weatherData={weather.city} />}
             </Tab.Screen>
-            
+
         </Tab.Navigator>
 
 

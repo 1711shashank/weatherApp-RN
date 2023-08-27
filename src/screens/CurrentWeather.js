@@ -1,27 +1,41 @@
 import { View, Text, SafeAreaView, StyleSheet } from 'react-native';
 import { Feather } from '@expo/vector-icons';
-import {weatherType} from '../utilities/weatherType';
+import { weatherType } from '../utilities/weatherType';
 
-const CurrentWeather = ({weatherData}) => {
+const CurrentWeather = ({ weatherData }) => {
 
-    console.log(weatherData);
     return (
         <SafeAreaView style={styles.wrapper}>
+            
             <View style={styles.container}>
-                <Feather name="sun" size={100} color="black" />
-                <Text style={styles.temp}>6</Text>
-                <Text style={styles.feelsLike}>Feels like 5</Text>
-                <View style={styles.highLowWrapper}>
-                    <Text style={styles.high}>High: 8</Text>
-                    <Text style={styles.low}>Low: 3</Text>
-                </View>
-            </View>
+                <Feather name={weatherType[weatherData.weather[0].main].icon} size={100} color="black" />
+                <Text style={styles.temp}>
+                    {weatherData.main.temp}
+                </Text>
+                <Text style={styles.feelsLike}>
+                    Feels like {weatherData.main.feels_like}
+                </Text>
 
+                <View style={styles.highLowWrapper}>
+                    <Text style={styles.high}>
+                        High: {weatherData.main.temp_max}
+                    </Text>
+                    <Text style={styles.low}>
+                        Low: {weatherData.main.temp_min}
+                    </Text>
+                </View>
+
+            </View>
 
             <View style={styles.bodyWrapper}>
-                <Text style={{ fontSize: 48 }}>Its Sunny</Text>
-                <Text style={{ fontSize: 30 }}>{weatherType['Rain'].message}</Text>
+                <Text style={{ fontSize: 48 }}>
+                    {weatherData.weather[0].description}
+                </Text>
+                <Text style={{ fontSize: 30 }}>
+                    {weatherType[weatherData.weather[0].main].message}
+                </Text>
             </View>
+
         </SafeAreaView>
     )
 }
