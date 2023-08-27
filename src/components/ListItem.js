@@ -33,7 +33,6 @@ const ListItem = ({ iconName, dt_txt, min, max }) => {
 const styles = StyleSheet.create({
     item: {
         backgroundColor: 'lightgray',
-        opacity: '70%',
         border: '1px solid gray',
         marginVertical: 8,
         marginHorizontal: 16,

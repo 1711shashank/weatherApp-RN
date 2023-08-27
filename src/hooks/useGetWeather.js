@@ -6,8 +6,8 @@ export const useGetWeather = () => {
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
     const [weather, setWeather] = useState([])
-    const [lat, setLat] = useState([])
-    const [lon, setLon] = useState([])
+    const [lat, setLat] = useState(0)
+    const [lon, setLon] = useState(0)
 
     const fetchWeatherData = async () => {
         try {
@@ -31,14 +31,16 @@ export const useGetWeather = () => {
         }
 
         let location = await Location.getCurrentPositionAsync({});
+        
         setLat(location.coords.latitude);
         setLon(location.coords.longitude);
+
         await fetchWeatherData();
     }
 
     useEffect(() => {
         getLocationPermissions();
-    }, [lat, lon]);
+    }, [lon, lat]);
 
     return [loading, error, weather]
 }

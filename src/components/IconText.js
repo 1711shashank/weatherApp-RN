@@ -1,11 +1,11 @@
 import { Feather } from '@expo/vector-icons';
 import { Text, View } from 'react-native';
 
-const IconText = ({ iconName, iconFontSize, text, fontSize, color }) => {
+const IconText = ({ icon, iconSize, text, fontSize, color }) => {
     return (
         <View style={{ alignItems: 'center' }}>
-            <Feather name={iconName} size={iconFontSize} color={color} />
-            <Text style={{ fontSize: fontSize, color: color, fontWeight: 500, }}>{text}</Text>
+            <Feather name={icon} size={parseInt(iconSize)} color={color} />
+            <Text style={{ fontSize: parseInt(fontSize), color: color }}>{text}</Text>
         </View>
     )
 }

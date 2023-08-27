@@ -10,7 +10,7 @@ const CurrentWeather = ({ weatherData }) => {
             <View style={styles.container}>
                 <Feather name={weatherType[weatherData.weather[0].main].icon} size={100} color="black" />
                 <Text style={styles.temp}>
-                {`${weatherData.main.temp}° `}
+                    {`${weatherData.main.temp}° `}
                 </Text>
                 <Text style={styles.feelsLike}>
                     {`Feels like: ${weatherData.main.feels_like}° `}
