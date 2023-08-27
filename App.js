@@ -2,6 +2,7 @@ import Tabs from './src/components/Tabs';
 import { ActivityIndicator, View } from 'react-native';
 import { useGetWeather } from './src/hooks/useGetWeather'
 import { NavigationContainer } from '@react-navigation/native';
+import ErrorItem from './src/components/ErrorItem'
 
 const App = () => {
     const [loading, error, weather] = useGetWeather();

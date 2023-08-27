@@ -1,5 +1,4 @@
 import { FlatList, ImageBackground, SafeAreaView, Text, View } from "react-native"
-import moment from 'moment'
 import ListItem from "../components/ListItem";
 import { weatherType } from '../utilities/weatherType';
 
@@ -7,7 +6,6 @@ import { weatherType } from '../utilities/weatherType';
 
 const UpComingWeather = ({ weatherData }) => {
 
-    console.log(weatherData);
     const renderItem = ({ item }) => (
 
         <ListItem

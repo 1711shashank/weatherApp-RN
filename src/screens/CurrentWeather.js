@@ -10,28 +10,29 @@ const CurrentWeather = ({ weatherData }) => {
             <View style={styles.container}>
                 <Feather name={weatherType[weatherData.weather[0].main].icon} size={100} color="black" />
                 <Text style={styles.temp}>
-                    {weatherData.main.temp}
+                {`${weatherData.main.temp}° `}
                 </Text>
                 <Text style={styles.feelsLike}>
-                    Feels like {weatherData.main.feels_like}
+                    {`Feels like: ${weatherData.main.feels_like}° `}
                 </Text>
 
                 <View style={styles.highLowWrapper}>
                     <Text style={styles.high}>
-                        High: {weatherData.main.temp_max}
+                        {`High: ${weatherData.main.temp_max}° `}
+
                     </Text>
                     <Text style={styles.low}>
-                        Low: {weatherData.main.temp_min}
+                        {`Low: ${weatherData.main.temp_min}° `}
                     </Text>
                 </View>
 
             </View>
 
             <View style={styles.bodyWrapper}>
-                <Text style={{ fontSize: 48 }}>
+                <Text style={{ fontSize: 40, textTransform: 'capitalize' }}>
                     {weatherData.weather[0].description}
                 </Text>
-                <Text style={{ fontSize: 30 }}>
+                <Text style={{ fontSize: 25 }}>
                     {weatherType[weatherData.weather[0].main].message}
                 </Text>
             </View>
@@ -71,7 +72,8 @@ const styles = StyleSheet.create({
     bodyWrapper: {
         justifyContent: 'flex-end',
         alignItems: 'flex-start',
-        marginBottom: 40
+        marginBottom: 40,
+        marginLeft: 20
     }
 });
 
