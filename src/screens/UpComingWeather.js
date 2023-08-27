@@ -1,44 +1,17 @@
 import { FlatList, ImageBackground, SafeAreaView, Text, View } from "react-native"
+import moment from 'moment'
 import ListItem from "../components/ListItem";
+import { weatherType } from '../utilities/weatherType';
 
 
-const upComingWeatherData = [
-    {
-        dt_txt: "2022-08-30 12:00:00",
-        main: {
-            temp_min: 296.34,
-            temp_max: 298.24
-        },
-        weather: [
-            { main: "Rain" }
-        ],
-    },
-    {
-        dt_txt: "2022-08-30 15:00:00",
-        main: {
-            temp_min: 296.34,
-            temp_max: 298.24
-        },
-        weather: [
-            { main: "Clear" }
-        ],
-    },
-    {
-        dt_txt: "2022-08-30 18:00:00",
-        main: {
-            temp_min: 296.34,
-            temp_max: 298.24
-        },
-        weather: [
-            { main: "Cloud" }
-        ],
-    },
-];
 
+const UpComingWeather = ({ weatherData }) => {
 
-const UpComingWeather = ({weatherData}) => {
+    console.log(weatherData);
     const renderItem = ({ item }) => (
+
         <ListItem
+            iconName={weatherType[item.weather[0].main].icon}
             dt_txt={item.dt_txt}
             min={item.main.temp_min}
             max={item.main.temp_max}
@@ -54,7 +27,7 @@ const UpComingWeather = ({weatherData}) => {
                 <Text style={{ fontSize: 30, textAlign: 'center', padding: 10, height: 60, color: 'white' }}>Up Coming Weather</Text>
                 <FlatList
                     keyExtractor={item => item.dt_txt}
-                    data={upComingWeatherData}
+                    data={weatherData}
                     renderItem={renderItem}
                 />
             </ImageBackground>

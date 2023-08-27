@@ -6,7 +6,7 @@ const CurrentWeather = ({ weatherData }) => {
 
     return (
         <SafeAreaView style={styles.wrapper}>
-            
+
             <View style={styles.container}>
                 <Feather name={weatherType[weatherData.weather[0].main].icon} size={100} color="black" />
                 <Text style={styles.temp}>

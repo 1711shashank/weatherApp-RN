@@ -28,9 +28,9 @@ const Tabs = ({ weather }) => {
                 },
             }}
         >
-            <Tab.Screen name={'Current'} options={{ tabBarIcon: ({ focused }) => <Feather name="droplet" size={25} color={focused ? 'tomato' : 'gray'} /> }}>
+            {/* <Tab.Screen name={'Current'} options={{ tabBarIcon: ({ focused }) => <Feather name="droplet" size={25} color={focused ? 'tomato' : 'gray'} /> }}>
                 {() => <CurrentWeather weatherData={weather.list[0]} />}
-            </Tab.Screen>
+            </Tab.Screen> */}
 
             <Tab.Screen name={'UpComing'} options={{ tabBarIcon: ({ focused }) => <Feather name="clock" size={25} color={focused ? 'tomato' : 'gray'} /> }}>
                 {() => <UpComingWeather weatherData={weather.list} />}
